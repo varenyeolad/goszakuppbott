@@ -1,0 +1,4 @@
+key_path=C:\Users\aizha\Downloads\goszakupbot\ИП ДАНА GOST512_505941dcaade7bd7905fcb3964c8bdf5b40105b0.p12
+lot_id=79406086
+lot_id=79406093
+lot_id=79406087

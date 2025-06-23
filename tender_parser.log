@@ -1,0 +1,82 @@
+2025-06-22 18:00:40,490 — INFO — 🔗 Начинаем обработку URL: https://v3bl.goszakup.gov.kz/ru/announce/index/14977053?tab=lots
+2025-06-22 18:00:40,491 — DEBUG — Skipping Selenium Manager; path to chrome driver specified in Service class: C:/Users/aizha/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe
+2025-06-22 18:00:40,496 — DEBUG — Started executable: `C:/Users/aizha/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe` in a child process with pid: 18464 using 0 to output -3
+2025-06-22 18:00:41,022 — DEBUG — POST http://localhost:52234/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'goog:chromeOptions': {'extensions': [], 'args': ['user-data-dir=C:/Users/aizha/temp-chrome-profile', '--no-sandbox', '--disable-dev-shm-usage']}}}}
+2025-06-22 18:00:41,023 — DEBUG — Starting new HTTP connection (1): localhost:52234
+2025-06-22 18:00:41,350 — DEBUG — http://localhost:52234 "POST /session HTTP/1.1" 500 0
+2025-06-22 18:00:41,350 — DEBUG — Remote response: status=500 | data={"value":{"error":"session not created","message":"session not created: Chrome failed to start: crashed.\n  (session not created: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)","stacktrace":"\tGetHandleVerifier [0x0x7ff613facda5+78885]\n\tGetHandleVerifier [0x0x7ff613face00+78976]\n\t(No symbol) [0x0x7ff613d69bca]\n\t(No symbol) [0x0x7ff613da897b]\n\t(No symbol) [0x0x7ff613da2d5d]\n\t(No symbol) [0x0x7ff613df69ee]\n\t(No symbol) [0x0x7ff613df6180]\n\t(No symbol) [0x0x7ff613de8963]\n\t(No symbol) [0x0x7ff613db16b1]\n\t(No symbol) [0x0x7ff613db2443]\n\tGetHandleVerifier [0x0x7ff614284eed+3061101]\n\tGetHandleVerifier [0x0x7ff61427f33d+3037629]\n\tGetHandleVerifier [0x0x7ff61429e592+3165202]\n\tGetHandleVerifier [0x0x7ff613fc730e+186766]\n\tGetHandleVerifier [0x0x7ff613fceb3f+217535]\n\tGetHandleVerifier [0x0x7ff613fb59b4+114740]\n\tGetHandleVerifier [0x0x7ff613fb5b69+115177]\n\tGetHandleVerifier [0x0x7ff613f9c368+10728]\n\tBaseThreadInitThunk [0x0x7ffc06aee8d7+23]\n\tRtlUserThreadStart [0x0x7ffc0803c34c+44]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1198', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-06-22 18:00:41,350 — DEBUG — Finished Request
+2025-06-22 18:00:43,408 — ERROR — ❌ Не удалось запустить ChromeDriver
+Traceback (most recent call last):
+  File "C:\Users\aizha\Downloads\goszakupbot\parser.py", line 26, in parse_lots
+    driver = webdriver.Chrome(
+        service=Service("C:/Users/aizha/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"),
+        options=chrome_options
+    )
+  File "C:\Users\aizha\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aizha\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aizha\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 250, in __init__
+    self.start_session(capabilities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\aizha\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 342, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aizha\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 429, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\aizha\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff613facda5+78885]
+	GetHandleVerifier [0x0x7ff613face00+78976]
+	(No symbol) [0x0x7ff613d69bca]
+	(No symbol) [0x0x7ff613da897b]
+	(No symbol) [0x0x7ff613da2d5d]
+	(No symbol) [0x0x7ff613df69ee]
+	(No symbol) [0x0x7ff613df6180]
+	(No symbol) [0x0x7ff613de8963]
+	(No symbol) [0x0x7ff613db16b1]
+	(No symbol) [0x0x7ff613db2443]
+	GetHandleVerifier [0x0x7ff614284eed+3061101]
+	GetHandleVerifier [0x0x7ff61427f33d+3037629]
+	GetHandleVerifier [0x0x7ff61429e592+3165202]
+	GetHandleVerifier [0x0x7ff613fc730e+186766]
+	GetHandleVerifier [0x0x7ff613fceb3f+217535]
+	GetHandleVerifier [0x0x7ff613fb59b4+114740]
+	GetHandleVerifier [0x0x7ff613fb5b69+115177]
+	GetHandleVerifier [0x0x7ff613f9c368+10728]
+	BaseThreadInitThunk [0x0x7ffc06aee8d7+23]
+	RtlUserThreadStart [0x0x7ffc0803c34c+44]
+
+2025-06-22 18:02:04,778 — INFO — 🔗 Старт обработки: https://v3bl.goszakup.gov.kz/ru/announce/index/14977053?tab=lots
+2025-06-22 18:02:04,779 — DEBUG — Skipping Selenium Manager; path to chrome driver specified in Service class: C:/Users/aizha/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe
+2025-06-22 18:02:04,787 — DEBUG — Started executable: `C:/Users/aizha/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe` in a child process with pid: 11776 using 0 to output -3
+2025-06-22 18:02:05,311 — DEBUG — POST http://localhost:52295/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'goog:chromeOptions': {'extensions': [], 'args': ['user-data-dir=C:/Users/aizha/temp-chrome-profile', '--no-sandbox', '--disable-dev-shm-usage', '--remote-debugging-port=9222', '--disable-background-networking', '--disable-extensions', '--disable-gpu', '--disable-sync', '--disable-translate', '--disable-popup-blocking', '--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--disable-client-side-phishing-detection', '--no-first-run']}}}}
+2025-06-22 18:02:05,311 — DEBUG — Starting new HTTP connection (1): localhost:52295
+2025-06-22 18:02:05,854 — DEBUG — http://localhost:52295 "POST /session HTTP/1.1" 200 0
+2025-06-22 18:02:05,854 — DEBUG — Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"137.0.7151.120","chrome":{"chromedriverVersion":"137.0.7151.119 (e0ac9d12dff5f2d33c935958b06bf1ded7f1c08c-refs/branch-heads/7151@{#2356})","userDataDir":"C:/Users/aizha/temp-chrome-profile"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:9222"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"fb97c44789f2e1047890896a09e9f557"}} | headers=HTTPHeaderDict({'Content-Length': '851', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-06-22 18:02:05,854 — DEBUG — Finished Request
+2025-06-22 18:02:05,854 — INFO — ✅ ChromeDriver запущен
+2025-06-22 18:02:05,854 — DEBUG — POST http://localhost:52295/session/fb97c44789f2e1047890896a09e9f557/url {'url': 'https://v3bl.goszakup.gov.kz/ru/announce/index/14977053?tab=lots'}
+2025-06-22 18:02:06,634 — DEBUG — http://localhost:52295 "POST /session/fb97c44789f2e1047890896a09e9f557/url HTTP/1.1" 200 0
+2025-06-22 18:02:06,634 — DEBUG — Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-06-22 18:02:06,634 — DEBUG — Finished Request
+2025-06-22 18:02:06,634 — DEBUG — GET http://localhost:52295/session/fb97c44789f2e1047890896a09e9f557/url {}
+2025-06-22 18:02:06,654 — DEBUG — http://localhost:52295 "GET /session/fb97c44789f2e1047890896a09e9f557/url HTTP/1.1" 200 0
+2025-06-22 18:02:06,654 — DEBUG — Remote response: status=200 | data={"value":"https://v3bl.goszakup.gov.kz/ru/announce/index/14977053?tab=lots"} | headers=HTTPHeaderDict({'Content-Length': '76', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-06-22 18:02:06,654 — DEBUG — Finished Request
+2025-06-22 18:02:06,654 — INFO — 🌍 Открыт URL: https://v3bl.goszakup.gov.kz/ru/announce/index/14977053?tab=lots
