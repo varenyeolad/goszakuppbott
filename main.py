@@ -81,7 +81,7 @@ class TenderBot(QWidget):
             QMessageBox.warning(self, "Ошибка", "Пожалуйста, вставьте корректную ссылку.")
             return
         try:
-            lots = parse_lots(url)
+            self.driver, lots = parse_lots(url)
             self.lot_list.clear()
             for lot in lots:
                 item = QListWidgetItem(lot["text"])
@@ -122,22 +122,26 @@ class TenderBot(QWidget):
             QMessageBox.warning(self, "Ошибка", "Введите корректную ссылку на тендер.")
             return
 
+        
         def monitor():
             QTimer.singleShot(0, lambda: self.submit_button.setEnabled(False))
             QTimer.singleShot(0, lambda: QMessageBox.information(
-                self, "Мониторинг", "⏳ Начинаем проверку доступности подачи заявки..."))
+                self, "Мониторинг", "⏳ Проверка подачи заявки началась..."))
 
             while True:
-                driver = fast_jump_to_application(url, self.saved_lot_ids)
-                if driver:
+                is_opened = fast_jump_to_application(url, self.saved_lot_ids, self.driver)
+                if is_opened:
                     QTimer.singleShot(0, lambda: QMessageBox.information(
-                        self, "Готово", "✅ Форма подачи открыта. Переходим к заполнению..."))
+                        self, "Готово", "✅ Страница заявки доступна."))
                     break
-                time.sleep(0.05)  # Проверяем каждые 5 секунд
+                time.sleep(5)
 
             QTimer.singleShot(0, lambda: self.submit_button.setEnabled(True))
 
+
+
         threading.Thread(target=monitor, daemon=True).start()
+            
 
 
 if __name__ == "__main__":

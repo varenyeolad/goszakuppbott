@@ -1,0 +1,2 @@
+2025-06-24 20:11:14.549 autofill.py[5] <module> -> Find Control Timeout(10s): {Name: 'Формирование ЭЦП', ControlType: WindowControl}
+2025-06-24 20:11:47.195 autofill.py[5] <module> -> Find Control Timeout(10s): {Name: 'Формирование ЭЦП', ControlType: WindowControl}
